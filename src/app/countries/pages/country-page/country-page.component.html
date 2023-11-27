@@ -1,0 +1,83 @@
+<div *ngIf="country; else showLoading">
+  <div class="row">
+    <div class="col-12">
+      <h2>
+        Country: <strong>{{ country.name.common }}</strong>
+      </h2>
+      <hr />
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-4">
+      <h3>Flag</h3>
+      <img
+        class="img-thumbnail mt-2"
+        [src]="country.flags.svg"
+        [alt]="country.name.common"
+      />
+    </div>
+    <div class="col">
+      <h3 class="mb-3">Info</h3>
+      <ul class="list-group">
+        <li class="list-group-item">
+          <strong>Population: {{ country.population | number }}</strong>
+        </li>
+        <li class="list-group-item">
+          <strong>Abbreviation: {{ country.cca2 }}</strong>
+        </li>
+        <li class="list-group-item">
+          <strong>Area: {{ country.area | number }} km²</strong>
+        </li>
+      </ul>
+      <a
+        class="btn btn-dark mt-3"
+        [href]="country.maps.googleMaps"
+        target="_blank"
+        >Google Maps</a
+      >
+    </div>
+  </div>
+  <div class="row mt-3">
+    <div class="col">
+      <h3>Translations</h3>
+      <div class="d-flex flex-wrap">
+        <span class="badge bg-danger m-1">{{
+          country.translations["spa"].common
+        }}</span>
+        <span class="badge bg-danger m-1">{{
+          country.translations["srp"].common
+        }}</span>
+        <span class="badge bg-danger m-1">{{
+          country.translations["rus"].common
+        }}</span>
+        <span class="badge bg-danger m-1">{{
+          country.translations["fin"].common
+        }}</span>
+        <span class="badge bg-danger m-1">{{
+          country.translations["deu"].common
+        }}</span>
+        <span class="badge bg-danger m-1">{{
+          country.translations["ces"].common
+        }}</span>
+        <span class="badge bg-danger m-1">{{
+          country.translations["fra"].common
+        }}</span>
+        <span class="badge bg-danger m-1">{{
+          country.translations["ara"].common
+        }}</span>
+        <span class="badge bg-danger m-1">{{
+          country.translations["zho"].common
+        }}</span>
+        <span class="badge bg-danger m-1">{{
+          country.translations["jpn"].common
+        }}</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #showLoading>
+  <div class="alert alert-info mt-5">
+    <h5 class="text-center">Please wait...</h5>
+  </div>
+</ng-template>

@@ -1,0 +1,25 @@
+<h2>By Region</h2>
+<hr />
+
+<div class="row">
+  <div class="col mb-2 text-center">
+    <button
+      *ngFor="let region of regions"
+      (click)="searchByRegion(region)"
+      class="btn m-2 fw-semibold"
+      [ngClass]="selectedRegion === region ? 'btn-primary' : 'btn-light'"
+    >
+      {{ region }}
+    </button>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col">
+    <shared-loading-spinner *ngIf="isLoading"></shared-loading-spinner>
+    <country-table
+      [countries]="countries"
+      noResults="Please select a region"
+    ></country-table>
+  </div>
+</div>

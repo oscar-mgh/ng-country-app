@@ -1,0 +1,10 @@
+<!--? before debouncer -->
+<!-- (keyup.enter)="emitValue(txtInput.value)" -->
+<input
+  class="form-control mb-3"
+  type="text"
+  [placeholder]="placeholder"
+  #txtInput
+  [value]="initialValue"
+  (keyup)="onKeyPress(txtInput.value)"
+/>
